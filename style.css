@@ -5,7 +5,9 @@ html, body {
     background-color: #202020;
     margin: 0;
     padding: 0;
-    font-family: Prompt
+    font-family: Prompt;
+    text-align: center;
+    color: #FFF8F0;
 }
 
 #welcome-splash {
@@ -16,7 +18,7 @@ html, body {
     position: sticky;
 }
 
-img {
+#splash-img {
     filter: grayscale(55%);
     width: 100vw;
     height: 100vh;
@@ -26,10 +28,8 @@ img {
 }
 
 #name {
-    font-family: Prompt;
     font-weight: 700;
-    font-size: 96px;
-    text-align: center;
+    font-size: 6.667vw;
     color: #EFA00B;
     top: 45%;
     left: 50%;
@@ -40,19 +40,18 @@ img {
 
 #splash-blurb {
     color: #FFF8F0;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     position: absolute;
-    font-size: 24px;
+    font-size: 1.667vw;
     font-weight: 200;
-    text-align: center;
+    margin-top: 5vw;
 }
 
 .header {
-    text-align: center;
     color: #C1292E;
-    font-size: 64px;
+    font-size: 4.444vw;
 }
 
 .slide {
@@ -65,4 +64,27 @@ img {
 
 #work {
     background-color: #FFF8F0;
+}
+
+p {
+    font-weight: 200;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.667vw;
+}
+
+.song-img {
+    width: 15vw;
+    border-radius: 50%;
+    margin-right: 5vw;
+    transition: 0.5s;
+}
+
+.song-img:last-child {
+    margin-right: 0;
+}
+
+.song-img:hover {
+    filter: grayscale(60%);
+    width: 17vw;
 }
