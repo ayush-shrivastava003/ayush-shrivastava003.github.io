@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;500;700&display=swap');
+
+html, body {
+    width: 100%;
+    background-color: #202020;
+    margin: 0;
+    padding: 0;
+    font-family: Prompt
+}
+
+#welcome-splash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    position: sticky;
+}
+
+img {
+    filter: grayscale(55%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#name {
+    font-family: Prompt;
+    font-weight: 700;
+    font-size: 96px;
+    text-align: center;
+    color: #EFA00B;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    white-space: nowrap;
+}
+
+#splash-blurb {
+    color: #FFF8F0;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 24px;
+    font-weight: 200;
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    color: #C1292E;
+    font-size: 64px;
+}
+
+.slide {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-color: #202020;
+}
+
+#work {
+    background-color: #FFF8F0;
+}
