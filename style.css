@@ -60,6 +60,7 @@ img {
     top: 0;
     height: 100vh;
     background-color: #202020;
+    max-width: 100%;
 }
 
 #work {
