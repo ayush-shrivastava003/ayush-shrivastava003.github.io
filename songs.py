@@ -24,7 +24,7 @@ def update():
     
     os.system('git commit -am "auto update: refresh songs" && git push')
 
-schedule.every(2).minutes.do(update)
+schedule.every(4).weeks.do(update) # 4 weeks is around the same time of the 'short_term' time range on spotify
 update()
 while True:
     schedule.run_pending()
