@@ -10,6 +10,13 @@ html, body {
     color: #FFF8F0;
 }
 
+p {
+    font-weight: 200;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.667vw;
+}
+
 #welcome-splash {
     display: flex;
     align-items: center;
@@ -47,6 +54,8 @@ html, body {
     font-size: 1.667vw;
     font-weight: 200;
     margin-top: 5vw;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .header {
@@ -64,13 +73,6 @@ html, body {
 
 #work {
     background-color: #FFF8F0;
-}
-
-p {
-    font-weight: 200;
-    padding-left: 10%;
-    padding-right: 10%;
-    font-size: 1.667vw;
 }
 
 .song-img {
