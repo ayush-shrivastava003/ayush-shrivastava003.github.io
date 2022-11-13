@@ -22,7 +22,7 @@ def update():
 
         f.write(dumps(all))
     
-    os.system('git commit -am "update" && git push')
+    os.system('git commit -am "auto update: refresh songs" && git push')
 
 schedule.every(2).minutes.do(update)
 update()
