@@ -13,10 +13,12 @@ def update():
     with open("tracks.json", "w") as f:
         all = []
         for track in sp.current_user_top_tracks(limit=3, offset=0, time_range='short_term')["items"]:
+            print(track)
             song_info = {
                 "img": track["album"]["images"][0]["url"],
                 "name": track["name"],
-                "artist": track["artists"][0]["name"]
+                "artist": track["artists"][0]["name"],
+
             }
             all.append(song_info)
 

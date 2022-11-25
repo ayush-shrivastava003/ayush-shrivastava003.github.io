@@ -8,13 +8,14 @@ html, body {
     font-family: Prompt;
     text-align: center;
     color: #FFF8F0;
+    font-size: 12px;
 }
 
 p {
     font-weight: 200;
     padding-left: 10%;
     padding-right: 10%;
-    font-size: 1.667vw;
+    font-size: calc(1rem + 1vw);
 }
 
 #welcome-splash {
@@ -36,7 +37,7 @@ p {
 
 #name {
     font-weight: 700;
-    font-size: 6.667vw;
+    font-size: calc(3rem + 1vw);
     color: #EFA00B;
     top: 45%;
     left: 50%;
@@ -51,7 +52,7 @@ p {
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-    font-size: 1.667vw;
+    font-size: 18pt;
     font-weight: 200;
     margin-top: 5vw;
     padding-left: 0;
@@ -60,7 +61,7 @@ p {
 
 .header {
     color: #C1292E;
-    font-size: 4.444vw;
+    font-size: 48pt;
 }
 
 .slide {
