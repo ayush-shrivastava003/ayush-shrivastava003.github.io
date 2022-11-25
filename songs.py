@@ -18,7 +18,7 @@ def update():
                 "img": track["album"]["images"][0]["url"],
                 "name": track["name"],
                 "artist": track["artists"][0]["name"],
-
+                "href": track["href"],
             }
             all.append(song_info)
 
