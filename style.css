@@ -98,7 +98,6 @@ a {
     width: 100%;
     font-style: italic;
     font-weight: 200;
-    margin-top: 5vw;
     padding-left: 0;
     padding-right: 0;
     
@@ -231,19 +230,19 @@ a {
     top: -20rem;
 }
 
-@media screen and (max-width: 1250px) {
-    #grid-container {
+@media screen and (max-width: 790px) {
+    #work-grid-container {
         grid-template-columns: auto;
     }
 }
 
 @media screen and (max-width: 360px) {
-    .grid-item {
+    .work-grid-item {
         width: calc(25rem + 1vw);
         height: calc(15rem + 1vw);
     }
 
-    .grid-item-txt {
+    .work-grid-item-txt {
         margin-top: -1.5rem;
     }
 }

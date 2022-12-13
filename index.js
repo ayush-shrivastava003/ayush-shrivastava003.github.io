@@ -9,14 +9,14 @@ let splashImg = document.getElementById("splash-img")
 let blurb = document.getElementById("splash-blurb")
 
 
-function resizeUnderline() {
+function moveSplashItems() {
     let translate = (splashImg.scrollHeight - name.offsetHeight) / 2
     translate -= (0.04 * splashImg.scrollHeight)
     underline.style.transform = `translateY(-${translate}px)`;
 
     // translate -= (0.2 * splashImg.scrollHeight) ? window.innerWidth < 360 : 0.35 * splashImg.scrollHeight
     if (window.innerWidth <= 1250) {
-        translate -= 0.2 * splashImg.scrollHeight
+        translate -= 0.15 * splashImg.scrollHeight
     } else {
         translate -= 0.25 * splashImg.scrollHeight
     }
@@ -24,8 +24,8 @@ function resizeUnderline() {
     blurb.style.transform = `translate(${translateX}px, ${translate}px)`
 }
 
-resizeUnderline()
-window.addEventListener("resize", resizeUnderline)
+moveSplashItems()
+window.addEventListener("resize", moveSplashItems)
 
 for (let i = 0; i < songs.length; i++) {
     console.log(songs)
@@ -33,3 +33,4 @@ for (let i = 0; i < songs.length; i++) {
     songIcons[i].src = songs[i].img // TODO: show song name & artist when hovering
     songUrls[i].href = songs[i].href
 }
+moveSplashItems() // call a second time bc sometimes the blurb doesn't mv
