@@ -24,6 +24,16 @@
     }
 }
 
+@keyframes fadein {
+    0% {
+        opacity: 0%
+    }
+
+    100% {
+        opacity: 100%
+    }
+}
+
 html, body {
     width: 100%;
     background-color: #202020;
@@ -33,6 +43,7 @@ html, body {
     text-align: center;
     color: #FFF8F0;
     font-size: 12px;
+    overflow-x: clip
 }
 
 p {
@@ -83,7 +94,7 @@ a {
 
 #underline {
     border: 3px solid #EFA00B;
-    will-change: max-width, opacity;
+    will-change: width, opacity;
     opacity: 0%;
     width: 0%;
     transform: translateY(-40vh);
@@ -100,6 +111,9 @@ a {
     font-weight: 200;
     padding-left: 0;
     padding-right: 0;
+    opacity: 0%;
+    will-change: opacity;
+    animation: fadein 2s ease-in-out 4.5s forwards;
     
 }
 

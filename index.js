@@ -13,6 +13,7 @@ function moveSplashItems() {
     let translate = (splashImg.scrollHeight - name.offsetHeight) / 2
     translate -= (0.04 * splashImg.scrollHeight)
     underline.style.transform = `translateY(-${translate}px)`;
+    underline.style.maxWidth = `${name.offsetWidth}px`
 
     // translate -= (0.2 * splashImg.scrollHeight) ? window.innerWidth < 360 : 0.35 * splashImg.scrollHeight
     if (window.innerWidth <= 1250) {
@@ -34,3 +35,37 @@ for (let i = 0; i < songs.length; i++) {
     songUrls[i].href = songs[i].href
 }
 moveSplashItems() // call a second time bc sometimes the blurb doesn't mv
+
+function cb(entries) {
+    entries.forEach((entry) => {
+        let elem = entry.target
+        if (entry.isIntersecting) {
+            elem.style.animation = "fadein 1s ease-in-out 0s forwards"
+        } else {
+            elem.style.animation = ""
+        }
+    })
+}
+
+const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0
+}
+
+let observer = new IntersectionObserver(cb, options)
+
+function observe(children) {
+    for (let i = 0; i < children.length; i++) {
+        let child = children[i]
+        console.log("observing: ", child)
+        observer.observe(child)
+        if (child.children.length > 0) observe(child.children)
+    }
+}
+
+let observeDivs = document.getElementsByClassName("observe")
+
+for (let i = 0; i < observeDivs.length; i++) {
+    observe(observeDivs[i].children)
+}
