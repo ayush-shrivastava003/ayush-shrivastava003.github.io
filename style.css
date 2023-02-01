@@ -85,11 +85,6 @@ a {
     position: absolute;
     will-change: opacity;
     animation: slide 2s ease-in-out 0s forwards;
-    /* border-bottom: 3px solid #EFA00B;
-    padding-left: 5px;
-    padding-right: 5px; */
-    /* margin-bottom: 5vw; */
-    /* white-space: nowrap; */
 }
 
 #underline {

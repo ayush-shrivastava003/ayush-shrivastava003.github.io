@@ -40,9 +40,10 @@ function cb(entries) {
     entries.forEach((entry) => {
         let elem = entry.target
         if (entry.isIntersecting) {
-            elem.style.animation = "fadein 1s ease-in-out 0s forwards"
+            elem.style.animation = "fadein 0.75s ease-in-out 0s forwards"
         } else {
             elem.style.animation = ""
+            elem.style.opacity = "0%"
         }
     })
 }
@@ -58,7 +59,7 @@ let observer = new IntersectionObserver(cb, options)
 function observe(children) {
     for (let i = 0; i < children.length; i++) {
         let child = children[i]
-        console.log("observing: ", child)
+        child.style.opacity = "0%"
         observer.observe(child)
         if (child.children.length > 0) observe(child.children)
     }
