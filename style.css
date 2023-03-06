@@ -74,6 +74,7 @@ a {
     justify-content: center;
     width: 100vw;
     position: sticky;
+    border: none;
 }
 
 #splash-img {
@@ -96,7 +97,7 @@ a {
     will-change: opacity;
     /* animation: slide 2s ease-in-out 0s forwards; */
     opacity: 0;
-    animation: fadein 2s ease-in-out 0s forwards;
+    /* animation: fadein 2s ease-in-out 0s forwards; */
 }
 
 #underline {
@@ -105,7 +106,7 @@ a {
     opacity: 0%;
     width: 0%;
     transform: translateY(-40vh);
-    animation: open 2s ease-in-out 2.25s forwards;
+    /* animation: open 2s ease-in-out 2.25s forwards; */
 }
 
 #splash-blurb {
@@ -120,7 +121,7 @@ a {
     padding-right: 0;
     opacity: 0%;
     will-change: opacity;
-    animation: fadein 2s ease-in-out 4.5s forwards;
+    /* animation: fadein 2s ease-in-out 4.5s forwards; */
     
 }
 
