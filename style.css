@@ -176,13 +176,16 @@ a {
 }
 
 #work-grid-container {
-    display: grid;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    justify-content: center;
+    /* display: grid; */
+    /* position: absolute; */
+    /* margin-left: 10vw; */
+    /* margin-right: 10vw; */
+    /* justify-content: center; */
     max-width: 100vw;
-    grid-template-columns: auto auto;
+    /* grid-template-columns: auto auto auto; */
+    /* align-content: center; */
     /* overflow-y:scroll; */
+    display: inline-block;
 }
 
 /* #grid-scroll-container {
@@ -191,12 +194,13 @@ a {
 
 .work-grid-item {
     background-color: var(--dark);
-    width: calc(30rem + 1vw);
-    height: calc(18rem + 1vw);
+    width: calc(50rem + 1vw);
+    height: calc(25rem + 1vw);
     min-width: calc(15rem + 1vw);
     min-height: calc(9rem + 1vw);
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    /* align-content: center; */
     margin: calc(1.667rem + 1vw);
     /* margin: 20px; */
     /* border-radius: ; */
@@ -208,7 +212,7 @@ a {
 }
 
 .work-grid-item:hover {
-    box-shadow: inset calc(30rem + 1vw) 0 0 var(--dark-hover);
+    box-shadow: inset calc(50rem + 1vw) 0 0 var(--dark-hover);
 }
 
 .grid-item-txt {
@@ -220,7 +224,7 @@ a {
 }
 
 .grid-item-h1 {
-    font-size: calc(3rem)
+    font-size: calc(5rem)
 }
 
 .inner-link {
@@ -258,16 +262,51 @@ a {
     top: -20rem;
 }
 
+.work-button {
+    width: 7vw;
+    height: 7vw;
+}
+
+.centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.arrow {
+    width: 5vw;
+    height: 5vw;
+    /* transform: translateY(12.5rem); */
+
+}
+
+#left-arrow {
+    transform: translate(calc(-32rem - 1vw), -50%);
+    /* z-index: 1; */
+}
+
+#right-arrow {
+    transform: translate(calc(26rem + 1vw), -50%) rotateY(180deg);
+}
+
+.fade {
+    animation: fadein 1s ease-in-out 0s forwards;
+}
 @media screen and (max-width: 790px) {
     #work-grid-container {
         grid-template-columns: auto;
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 390px) {
     .work-grid-item {
         width: calc(25rem + 1vw);
-        height: calc(15rem + 1vw);
+        height: calc(25rem + 1vw);
+    }
+
+    .arrow {
+        transform: translate(-50%, -50%);
     }
 
     .work-grid-item-txt {

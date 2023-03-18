@@ -8,6 +8,10 @@ let underline = document.getElementById("underline")
 let splashImg = document.getElementById("splash-img")
 let blurb = document.getElementById("splash-blurb")
 
+let a = document.getElementById("work-item-a")
+let works = await fetch("./works.json").then((res) => res.json())
+let idx = 0
+
 function run() {
     function moveSplashItems() {
         let translate = (splashImg.scrollHeight - name.offsetHeight) / 2
@@ -78,3 +82,31 @@ function run() {
 if (document.readyState !== "loading") {
     run()
 } else window.addEventListener("DOMContentLoaded", run)
+
+function change(work) {
+    // a.style.animation = "fadein 1s ease-in-out 0s forwards"
+    a.href = work.href
+    a.innerHTML = `
+        <div class="work-grid-item">
+            <h1 class="grid-item-h1 fade">${work.h1}</h1>
+            <p class="grid-item-txt fade">${work.txt}</p>
+        </div>
+    `
+}
+
+function prevItem() {
+    if (idx == 0) return
+    idx--
+    change(works[idx])
+}
+
+function nextItem() {
+    if (idx == works.length - 1) return
+    idx++
+    change(works[idx])
+}
+
+idx++
+prevItem();
+document.getElementById("left-arrow").addEventListener("click", prevItem)
+document.getElementById("right-arrow").addEventListener("click", nextItem)

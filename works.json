@@ -1,0 +1,22 @@
+[
+    {
+        "href": "/research/index.html",
+        "h1": "PHS Research",
+        "txt": "Member of the PHS Research program (year 1 of 3). Summary of projects and major updates are available on this site. Minor updates posted on Twitter."
+    },
+    {
+        "href": "https://hackphs.tech",
+        "h1": "HackPHS 2022",
+        "txt": "Member of HackPHS 2022 organizer team. Focused on building website & setting up DevPost pre-event. Ran an introduction to Python workshop, served food, & ensured judging went smoothly mid-event."
+    },
+    {
+        "href": "https://github.com/henry-lang/soundbites",
+        "h1": "Soundbites",
+        "txt": "First attempt at building a website between Jun-Aug 2021. Aims to be a music news/opinion site (currently inactive)."
+    },
+    {
+        "href": "https://github.com/ayush-shrivastava003/ayush-shrivastava003.github.io",
+        "h1": "This site",
+        "txt":  "Custom-built profile site using vanilla HTML/CSS/JS. Main challenges inluded optimization for all screen sizes (using rem scaling) and automatic song updating."
+    }
+]
