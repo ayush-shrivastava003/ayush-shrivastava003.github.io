@@ -13,44 +13,18 @@ let works = await fetch("./works.json").then((res) => res.json())
 let idx = 0
 
 function run() {
-    function moveSplashItems() {
-        let translate = (splashImg.scrollHeight - name.offsetHeight) / 2
-        translate -= (0.04 * splashImg.scrollHeight)
-        underline.style.transform = `translateY(-${translate}px)`;
-        underline.style.maxWidth = `${name.offsetWidth}px`
-    
-        // translate -= (0.2 * splashImg.scrollHeight) ? window.innerWidth < 360 : 0.35 * splashImg.scrollHeight
-        if (window.innerWidth <= 1250) {
-            translate -= 0.15 * splashImg.scrollHeight
-        } else {
-            translate -= 0.25 * splashImg.scrollHeight
-        }
-        let translateX = -0.5 * splashImg.scrollWidth;
-        blurb.style.transform = `translate(${translateX}px, ${translate}px)`
-    }
-    
-    moveSplashItems()
-    name.style.animation = "fadein 2s ease-in-out 0s forwards"
-    underline.style.animation = "open 2s ease-in-out 2.25s forwards"
-    blurb.style.animation = "fadein 2s ease-in-out 4.5s forwards"
-    window.addEventListener("resize", moveSplashItems)
-    
-    for (let i = 0; i < songs.length; i++) {
-        // console.log(songs)
-        // console.log(songIcons)
-        songIcons[i].src = songs[i].img // TODO: show song name & artist when hovering
-        songUrls[i].href = songs[i].href
-    }
-    moveSplashItems() // call a second time bc sometimes the blurb doesn't mv
-    
     function cb(entries) {
         entries.forEach((entry) => {
             let elem = entry.target
             if (entry.isIntersecting) {
-                elem.style.animation = "fadein 0.75s ease-in-out 0s forwards"
+                // elem.style.animation = "fadein 0.75s ease-in-out 0s forwards"
+                console.log("INTERSECT");
+                // console.log(document.getElementById("splash-img").style);
+                splashImg.style.filter = "brightness(30%) grayscale(100%)";
             } else {
-                elem.style.animation = ""
-                elem.style.opacity = "0%"
+                // elem.style.animation = ""
+                // elem.style.opacity = "0%"
+                splashImg.style.filter = "brightness(15%) grayscale(100%)"
             }
         })
     }
@@ -66,7 +40,7 @@ function run() {
     function observe(children) {
         for (let i = 0; i < children.length; i++) {
             let child = children[i]
-            child.style.opacity = "0%"
+            // child.style.opacity = "0%"
             observer.observe(child)
             if (child.children.length > 0) observe(child.children)
         }
@@ -83,30 +57,50 @@ if (document.readyState !== "loading") {
     run()
 } else window.addEventListener("DOMContentLoaded", run)
 
-function change(work) {
-    // a.style.animation = "fadein 1s ease-in-out 0s forwards"
-    a.href = work.href
-    a.innerHTML = `
-        <div class="work-grid-item">
-            <h1 class="grid-item-h1 fade">${work.h1}</h1>
-            <p class="grid-item-txt fade">${work.txt}</p>
-        </div>
-    `
-}
+const nameContainer = document.getElementById("name-container")
+let trait1 = document.getElementById("trait1")
+let trait2 = document.getElementById("trait2")
+let trait3 = document.getElementById("trait3")
+let scroll = 0
+const t1Unit = 8.8/66.66666412353516
+const t3Unit = 7.5/66.66666412353516 // in %
+const t2Unit = -6.5/66.66666412353516
+const duration = 200
+let vpHeight = window.innerHeight;
 
-function prevItem() {
-    if (idx == 0) return
-    idx--
-    change(works[idx])
-}
+window.addEventListener('wheel', (e) => {
+    scroll = Math.min(Math.max(scroll + e.deltaY, 0), 3700);
+    let ncHeight = nameContainer.getBoundingClientRect().bottom
+    let progress = 1 - ((scroll - (0.15 * vpHeight)) / ncHeight);
+    console.log(scroll, ncHeight, scroll / ncHeight, progress, window.innerHeight - ncHeight);
+    nameContainer.style.opacity = progress;
+    let t1Left = t1Unit * Math.max(scroll - 125, 0);
+    let t3Left = t3Unit * Math.max(scroll - 125, 0);
+    let t2Left = t2Unit * Math.max(scroll - 125, 0);
+    // console.log(left);
+    trait1.animate(
+        [{transform: `translate(${t1Left}%, 60%)`}], {
+        duration,
+        iterations: 1,
+        ease: "ease-in-out"
+    })
 
-function nextItem() {
-    if (idx == works.length - 1) return
-    idx++
-    change(works[idx])
-}
+    trait2.animate(
+        [{transform: `translate(${t2Left}%, 5%`}], {
+        duration,
+        iterations: 1,
+        ease: "ease-in-out"
+    })
 
-idx++
-prevItem();
-document.getElementById("left-arrow").addEventListener("click", prevItem)
-document.getElementById("right-arrow").addEventListener("click", nextItem)
+    trait3.animate(
+        [{transform: `translate(${t3Left}%,-60%`}], {
+        duration,
+        iterations: 1,
+        ease: "ease-in-out"
+    })
+
+    trait1.style.transform = `translate(${t1Left}%,60%)`
+    trait2.style.transform = `translate(${t2Left}%, 5%)`
+    trait3.style.transform = `translate(${t3Left}%,-60%)`
+}, {passive: false})
+
