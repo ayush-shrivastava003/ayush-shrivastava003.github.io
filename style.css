@@ -68,13 +68,13 @@ p {
 
 a {
     text-decoration: none;
-    color: var(--light);
+    color: rgb(192, 192, 192);
     border-bottom: 5px solid transparent;
     transition: 0.5s;
 }
 
 a:hover {
-    border-bottom: 5px solid var(--light);
+    border-bottom: 5px solid rgb(192, 192, 192);
 }
 
 #splash-img {
@@ -181,6 +181,7 @@ a:hover {
     color: white;
     font-size: calc(8rem + 1vw);
     position: absolute;
+    /* bottom: 20%; */
   /*   opacity: 0; */
   /*   will-change: opacity; */
   /*   animation: rotate-fadein 1s ease-in-out 0.5s forwards */
@@ -189,7 +190,7 @@ a:hover {
   #trait1 {
     margin-left: 1rem;
     right: 65%;
-    bottom: 75%;
+    bottom: 70%;
     transform: translateY(60%);
     text-align: center;
   /*   animation: rotate-fadein 1s ease-in-out 0.5s forwards; */
@@ -198,7 +199,7 @@ a:hover {
   #trait2 {
       margin-right: 1rem;
       left: 55%;
-      bottom: 45%;
+      bottom: 40%;
       transform: translateY(5%);
   /*     animation: rotate-fadein-right 1s forwards; */
   /*     color: #0B0B0B */
@@ -207,8 +208,13 @@ a:hover {
   #trait3 {
     margin-left: 1rem;
     right: 60%;
-    bottom: 15%;
+    bottom: 10%;
     transform: translateY(-60%);
     width: 50vw;
   /*   animation: rotate-fadein 1s forwards; */
+  }
+
+  #big-about {
+    font-size: calc(6rem + 1vw);
+    text-align: center;
   }

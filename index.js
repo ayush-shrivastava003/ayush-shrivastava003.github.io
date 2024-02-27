@@ -71,7 +71,7 @@ let vpHeight = window.innerHeight;
 console.log(nameContainer.scrollHeight * 2)
 
 window.addEventListener('wheel', (e) => {
-    scroll = Math.min(nameContainer.scrollHeight * 2, Math.max(scroll + e.deltaY, 0));
+    scroll = Math.min(nameContainer.scrollHeight * 4, Math.max(scroll + e.deltaY, 0));
     let ncHeight = nameContainer.getBoundingClientRect().bottom
     let progress = Math.min(1, Math.max(0, 1 - ((scroll - (0.15 * vpHeight)) / ncHeight)));
     console.log(scroll, ncHeight, scroll / ncHeight, progress, window.innerHeight - ncHeight);
@@ -83,28 +83,28 @@ window.addEventListener('wheel', (e) => {
     let t2Left = t2Unit * Math.max(scroll - 125, 0);
     // // console.log(left);
     trait1.animate(
-        [{transform: `translate(${t1Left}%, 60%)`}], {
+        [{transform: `translate(${t1Left}%, 85%)`}], {
         duration,
         iterations: 1,
         ease: "ease-in-out"
     })
 
     trait2.animate(
-        [{transform: `translate(${t2Left}%, 5%`}], {
+        [{transform: `translate(${t2Left}%, 20%`}], {
         duration,
         iterations: 1,
         ease: "ease-in-out"
     })
 
     trait3.animate(
-        [{transform: `translate(${t3Left}%,-60%`}], {
+        [{transform: `translate(${t3Left}%,-45%`}], {
         duration,
         iterations: 1,
         ease: "ease-in-out"
     })
 
-    trait1.style.transform = `translate(${t1Left}%,60%)`
-    trait2.style.transform = `translate(${t2Left}%, 5%)`
-    trait3.style.transform = `translate(${t3Left}%,-60%)`
+    trait1.style.transform = `translate(${t1Left}%,85%)`
+    trait2.style.transform = `translate(${t2Left}%, 20%)`
+    trait3.style.transform = `translate(${t3Left}%,-45%)`
 }, {passive: false})
 
