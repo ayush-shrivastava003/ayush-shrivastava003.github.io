@@ -14,20 +14,20 @@ function run() {
                 if (elem.className == "name") return;
                 else elem.style.animation = "fadein 0.75s ease-in-out 0s forwards"
             } else {
-                    elem.style.animation = ""
-                    elem.style.opacity = "0%"
+                elem.style.animation = ""
+                elem.style.opacity = "0%"
             }
         })
     }
-    
+
     const options = {
         root: null,
         rootMargin: "0px",
         threshold: 0
     }
-    
+
     let observer = new IntersectionObserver(cb, options)
-    
+
     function observe(children) {
         for (let i = 0; i < children.length; i++) {
             let child = children[i]
@@ -36,9 +36,9 @@ function run() {
             if (child.children.length > 0) observe(child.children)
         }
     }
-    
+
     let observeDivs = document.getElementsByClassName("observe")
-    
+
     for (let i = 0; i < observeDivs.length; i++) {
         observe(observeDivs[i].children)
     }
@@ -59,16 +59,16 @@ window.addEventListener('wheel', (e) => {
     let progress = Math.min(1, Math.max(0, 1 - ((scroll - (0.15 * vpHeight)) / ncHeight)));
     nameContainer.style.opacity = progress;
     name.style.opacity = progress;
-}, {passive: false})
+}, { passive: false })
 
 const dateTime = document.getElementById("date-time")
 dateTime.innerText = new Date().toLocaleDateString(
     'en-us', {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "2-digit"
-    }).toUpperCase()
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "2-digit"
+}).toUpperCase()
 
 let videoIdx = 0;
 splashImg.addEventListener("ended", () => {
@@ -77,3 +77,37 @@ splashImg.addEventListener("ended", () => {
     splashImg.load();
     splashImg.play();
 }, false)
+
+// Listen for the critical asset to load
+// const asset = document.getElementById('my-critical-asset');
+const loader = document.getElementById('loading-overlay');
+const loaderContent = document.getElementById('loader-content');
+const content = document.getElementById('main-content');
+let dots = 0;
+
+const dotAnimation = setInterval(() => {
+    loaderContent.innerText = `LOADING CONTENTS, PLEASE WAIT${'.'.repeat(dots)}`
+    dots = (dots >= 3) ? 0 : dots + 1;
+}, 500)
+
+splashImg.addEventListener('loadeddata', () => {
+    // Hide the loader
+    loader.style.top = '-100vh';
+    content.style.display = 'block';
+    name.style.opacity = '100%';
+
+    // Wait for the fade animation, then hide and show content
+    setTimeout(() => {
+        loader.style.display = 'none';
+        clearInterval(dotAnimation)
+    }, 500);
+});
+
+// Fallback: If the asset fails to load, show content anyway after a timeout 
+// so the user isn't stuck on a loading screen forever
+setTimeout(() => {
+    if (loader.style.display !== 'none') {
+        loader.style.display = 'none';
+        content.style.display = 'block';
+    }
+}, 8000); // 8 seconds

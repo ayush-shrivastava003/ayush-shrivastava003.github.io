@@ -32,7 +32,8 @@
     --darker: rgb(20, 20, 20);
 }
 
-html, body {
+html,
+body {
     width: 100%;
     background-color: var(--dark);
     margin: 0;
@@ -50,7 +51,9 @@ body {
     background-color: black;
 }
 
-p, ul {
+
+p,
+ul {
     font-family: var(--serif-font);
     font-weight: 300;
     padding-left: 10%;
@@ -81,6 +84,28 @@ a:hover {
     font-weight: bold;
 }
 
+#loading-overlay {
+    /* background-color: white;
+    width: 100vw;
+    height: 100vh;
+    color: black; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.5s ease;
+    color: black;
+}
+
+#main-content {
+    display: none;
+}
 
 #splash-img {
     filter: brightness(30%) grayscale(100%);
@@ -135,7 +160,7 @@ a:hover {
     padding-top: 2.5rem;
 }
 
-  #big-about {
+#big-about {
     font-size: calc(1rem + 1vw);
     text-align: left;
     line-height: 1.5;
@@ -144,27 +169,27 @@ a:hover {
     padding-top: 1em;
     font-weight: 300;
     font-family: var(--sans-font)
-  }
+}
 
-  #white-bg {
+#white-bg {
     background-color: var(--light);
     color: var(--dark);
 }
 
-  #big-name {
+#big-name {
     font-size: calc(5rem + 1vw);
     font-family: var(--serif-font);
     text-align: center;
     max-width: 50%;
     margin: 0 auto;
     color: var(--darker);
-  }
+}
 
-  #content strong {
+#content strong {
     color: var(--dark);
-  }
+}
 
-  #date-time {
+#date-time {
     text-align: center;
     font-size: calc(0.5rem + 0.75vw);
     font-family: var(--sans-font);
@@ -172,22 +197,22 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
-  }
+}
 
-  #subtitle {
+#subtitle {
     text-align: center;
     font-size: calc(0.5rem + 0.75vw);
     font-family: var(--sans-font);
     width: 100%;
     text-transform: uppercase;
-  }
+}
 
-  #name-sub {
+#name-sub {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -25vh);
-  }
+}
 
 @media (width < 500px) {
     #splash-img {
